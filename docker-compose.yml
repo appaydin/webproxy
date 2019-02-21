@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+    webproxy:
+        image: jwilder/nginx-proxy:alpine
+        ports:
+            - "80:80"
+            - "443:443"
+        restart: always
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./certs:/etc/nginx/certs:ro
+        networks: 
+            - webproxy
+
+networks: 
+    webproxy:
+        name: webproxy
