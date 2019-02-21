@@ -1,6 +1,6 @@
 # Nginx Reverse Proxy
 
-Documentation at [Docker Hub Repository]([https://link](https://hub.docker.com/r/jwilder/nginx-proxy)). Listens only port HTTP(80) and HTTPS(443). Connect our applications to the __webproxy__ network.
+Documentation at [Docker Hub Repository](https://hub.docker.com/r/jwilder/nginx-proxy). Listens only port HTTP(80) and HTTPS(443). Connect our applications to the __webproxy__ network.
 
 Add the certificates to the certs directory with the host name. Example:
 ```
