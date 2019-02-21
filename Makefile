@@ -16,8 +16,8 @@ restart:
 # Container Actions
 # ------------------------------------
 log:
-	docker-compose logs webproxy
+	docker-compose logs nginxproxy
 conf:
-	docker-compose exec webproxy cat /etc/nginx/conf.d/default.conf
+	docker-compose exec nginxproxy cat /etc/nginx/conf.d/default.conf
 reload:
-	docker-compose exec webproxy nginx -s reload
+	docker-compose exec nginxproxy nginx -s reload
