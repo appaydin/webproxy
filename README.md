@@ -1,4 +1,4 @@
-# Treafik Reverse Proxy
+# Traefik Reverse Proxy
 
 Documentation at [Traefik](https://docs.traefik.io/). Listens only port HTTP(80) and HTTPS(443). Connect our applications to the __webproxy__ network. 
 
