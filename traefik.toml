@@ -1,0 +1,67 @@
+debug = false
+defaultEntryPoints = ["http", "https"]
+
+# ---------------------------
+# Entrypoints
+# ---------------------------
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+    [entryPoints.http.redirect]
+      regex = "^http://www.(.*)/(.*)"
+      replacement = "http://$1/$2"
+      permanent = true
+
+  [entryPoints.https]
+    address = ":443"
+    [entryPoints.https.redirect]
+      regex = "^https://www.(.*)/(.*)"
+      replacement = "https://$1/$2"
+      permanent = true
+    [entryPoints.https.tls]
+      # [[entryPoints.https.tls.certificates]]
+      #   certFile = "/certs/writeln.net.crt"
+      #   keyFile = "/certs/writeln.net.key"
+
+[retry]
+
+# ---------------------------
+# API Dashboard
+# ---------------------------
+[api]
+  entrypoint = "api"
+  dashboard = true
+  debug = true
+
+  [api.statistics]
+    recentErrors = 25
+
+  [entryPoints.api]
+    address=":8080"
+    [entryPoints.api.auth]
+    [entryPoints.api.auth.basic]
+       users = ["admin:$apr1$Wft73w2d$YLYWT0BZamy2oTwM4RuTO/"]
+
+# ---------------------------
+# Docker
+# ---------------------------
+[docker]
+watch = true
+exposedByDefault = false
+network = "webproxy"
+
+# ---------------------------
+# Lets Encrypt
+# ---------------------------
+[acme]
+email = "contact@writeln.net"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+
+[acme.httpChallenge]
+  entryPoint = "http"
+
+#[[acme.domains]] 
+#  main = "writeln.net"
+#  sans = ["app.writeln.net"]

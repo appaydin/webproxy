@@ -1,19 +1,21 @@
 version: '3.5'
 
 services:
-    nginxproxy:
-        container_name: nginxproxy
-        image: jwilder/nginx-proxy:alpine
+    traefik:
+        image: traefik
+        #restart: always
         ports:
             - "80:80"
+            - "8000:8080"
             - "443:443"
-        restart: always
         volumes:
-            - /var/run/docker.sock:/tmp/docker.sock:ro
-            - ./certs:/etc/nginx/certs:ro
-        networks: 
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./traefik.toml:/traefik.toml
+            - ./acme.json:/acme.json
+            - ./certs:/certs
+        networks:
             - webproxy
 
-networks: 
+networks:
     webproxy:
         name: webproxy

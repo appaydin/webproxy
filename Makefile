@@ -10,14 +10,5 @@ down:
 build:
 	sudo docker-compose build
 restart:
-	sudo docker-compose stop && docker-compose up -d --remove-orphans
-
-# ------------------------------------
-# Container Actions
-# ------------------------------------
-log:
-	sudo docker-compose logs nginxproxy
-conf:
-	sudo docker-compose exec nginxproxy cat /etc/nginx/conf.d/default.conf
-reload:
-	sudo docker-compose exec nginxproxy nginx -s reload
+	sudo docker-compose stop
+	sudo docker-compose up -d --remove-orphans
