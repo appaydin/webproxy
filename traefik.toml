@@ -20,8 +20,8 @@ defaultEntryPoints = ["http", "https"]
       permanent = true
     [entryPoints.https.tls]
       # [[entryPoints.https.tls.certificates]]
-      #   certFile = "/certs/writeln.net.crt"
-      #   keyFile = "/certs/writeln.net.key"
+      #   certFile = "/certs/example.com.crt"
+      #   keyFile = "/certs/example.com.key"
 
 [retry]
 
@@ -54,7 +54,7 @@ network = "webproxy"
 # Lets Encrypt
 # ---------------------------
 [acme]
-email = "contact@writeln.net"
+email = "contact@example.com"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
@@ -63,5 +63,5 @@ onHostRule = true
   entryPoint = "http"
 
 #[[acme.domains]] 
-#  main = "writeln.net"
-#  sans = ["app.writeln.net"]
+#  main = "example.net"
+#  sans = ["app.example.net"]
