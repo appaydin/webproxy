@@ -14,6 +14,7 @@ services:
             - ./traefik.toml:/traefik.toml
             - ./acme.json:/acme.json
             - ./certs:/certs
+            - ./domains:/domains
         networks:
             - webproxy
 

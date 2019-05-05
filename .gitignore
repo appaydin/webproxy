@@ -1,5 +1,7 @@
 certs/*
 !certs/.gitkeep
+domains/*
+!domains/.gitkeep
 .idea
 .DS_Store
 acme.json

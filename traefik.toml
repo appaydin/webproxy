@@ -25,6 +25,10 @@ defaultEntryPoints = ["http", "https"]
 
 [retry]
 
+[file]
+directory = "/domains/"
+watch = true
+
 # ---------------------------
 # API Dashboard
 # ---------------------------
